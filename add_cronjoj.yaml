@@ -1,0 +1,10 @@
+- hosts: dbtest
+  tasks:
+   - cron:
+      name: "check dirs"
+      minute: "0"
+      hour: "5,2"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      job: "ls -alh > /dev/null"
