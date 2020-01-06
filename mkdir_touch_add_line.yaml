@@ -1,0 +1,25 @@
+- hosts: dbtest
+  tasks:
+    - name: Creates directory                                   ##create directory on remote
+      file:
+        path: /home/oracle/ansible_1/
+        state: directory    
+    - name: create sh file                                      ## create sh file on remote             
+      file:
+        path: /home/oracle/ansible_1/ansbile_test.sh
+        state: touch
+        mode: 0777
+    - name: add content                                          ## add "#!/bin/bash" to first row
+      copy:
+        content: "#!/bin/bash" 
+        dest: /home/oracle/ansible_1/ansbile_test.sh
+    - name: add line                                              ## add "echo $HOSTNAME" to end of the file
+      lineinfile:
+        path: /home/oracle/ansible_1/ansbile_test.sh
+        line: 'echo $HOSTNAME'
+        insertafter: AOF
+        
+        
+   #     
+        
+   
