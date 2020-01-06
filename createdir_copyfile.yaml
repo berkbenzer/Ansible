@@ -1,0 +1,10 @@
+- hosts: dbtest           
+  tasks:
+    - name: Creates directory                 ##creates ansbile folder in remote server
+      file:
+        path: /home/oracle/ansible/
+        state: directory
+    - name: copy file to remote host          ## copy file from ansible machine to remote server given path
+      copy:
+        src: /etc/ansible/yaml/sh/test.sh
+        dest: /home/oracle/ansible/	
