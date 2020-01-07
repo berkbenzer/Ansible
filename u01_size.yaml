@@ -1,0 +1,8 @@
+ - hosts: dbtest
+   gather_facts: true
+   tasks:
+     - name: check u01 free disk space
+       action:  shell df -h /u01 | awk 'END { print $4 }'
+       register: u01size
+     - debug:
+         var: u01size.stdout_lines
