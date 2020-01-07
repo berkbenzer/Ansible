@@ -1,0 +1,9 @@
+- name: test playbook
+  hosts: dbtest
+  tasks:
+      - shell: uname -a
+        register: uname_result
+      - copy: 
+          content: "{{ uname_result.stdout }}"  
+          dest: "/etc/ansible/output/uname.txt"
+        delegate_to: localhost
