@@ -1,0 +1,8 @@
+- name: test playbook
+  hosts: dbtest
+
+  tasks:
+      - shell: uname -a
+        register: uname_result
+      - debug: 
+          msg: "{{ uname_result.stdout }}"
