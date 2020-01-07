@@ -5,3 +5,4 @@
         path: /home/oracle/.bash_profile
         line: exs (){ export ORACLE_SID="" read $1 deneme export ORACLE_SID="$deneme"echo "Oracle Sid has been changed to:" $ORACLE_SID}
         insertafter: EOF
+        #line: last
